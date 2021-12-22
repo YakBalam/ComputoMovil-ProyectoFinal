@@ -1,0 +1,4 @@
+#Tue Dec 21 17:35:31 CST 2021
+base.0=C\:\\Users\\Yak Balam\\Documents\\Balam\\Computo-Movil\\Proyecto\\taller_mecanico\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
