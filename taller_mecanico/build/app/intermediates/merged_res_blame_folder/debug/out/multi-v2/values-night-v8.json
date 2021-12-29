@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Yak Balam\\Documents\\Balam\\Computo-Movil\\Proyecto\\taller_mecanico\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\Yak Balam\\Documents\\GitHub\\Computo-Movil\\ComputoMovil-ProyectoFinal\\taller_mecanico\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Yak Balam\\Documents\\Balam\\Computo-Movil\\Proyecto\\taller_mecanico\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\Yak Balam\\Documents\\GitHub\\Computo-Movil\\ComputoMovil-ProyectoFinal\\taller_mecanico\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
