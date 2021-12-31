@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "13315484048",
+    "firebase_url": "https://taller-mecanico-2c095-default-rtdb.firebaseio.com",
+    "project_id": "taller-mecanico-2c095",
+    "storage_bucket": "taller-mecanico-2c095.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13315484048:android:2b7768bdc88baf31f2ab15",
+        "android_client_info": {
+          "package_name": "com.example.cliente_taller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13315484048-o4pmr32bggh6b3v2cckakfgu1be098qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFpRUDxXdPPFAAzZHEu49grOLJjHFf1mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13315484048-o4pmr32bggh6b3v2cckakfgu1be098qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13315484048:android:ba4ba0be78325070f2ab15",
+        "android_client_info": {
+          "package_name": "com.example.taller_mecanico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13315484048-o4pmr32bggh6b3v2cckakfgu1be098qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFpRUDxXdPPFAAzZHEu49grOLJjHFf1mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13315484048-o4pmr32bggh6b3v2cckakfgu1be098qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
