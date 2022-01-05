@@ -1,7 +1,7 @@
 taller_mecanico
 2.12
-file:///C:/Users/Yak%20Balam/Documents/Balam/Computo-Movil/Proyecto/taller_mecanico/
-file:///C:/Users/Yak%20Balam/Documents/Balam/Computo-Movil/Proyecto/taller_mecanico/lib/
+file:///C:/Users/Yak%20Balam/Documents/GitHub/Computo-Movil/ComputoMovil-ProyectoFinal/taller_mecanico/
+file:///C:/Users/Yak%20Balam/Documents/GitHub/Computo-Movil/ComputoMovil-ProyectoFinal/taller_mecanico/lib/
 async
 2.12
 file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.6.1/
@@ -34,6 +34,10 @@ fake_async
 2.12
 file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/
 file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/
+intl
+2.0
+file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.15.8/
+file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.15.8/lib/
 matcher
 2.12
 file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10/

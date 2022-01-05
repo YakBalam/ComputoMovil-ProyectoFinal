@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:taller_mecanico/Home.dart';
 import 'package:taller_mecanico/Servicio.dart';
 import 'Servicio.dart';
@@ -41,7 +42,7 @@ class Pendientes extends StatelessWidget {
 Widget cardPendientes(BuildContext context, int indice) {
   return Card(
     //elevation: 100,
-    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     margin: EdgeInsets.only(right: 22, left: 22, top: 15),
     elevation: 10,
     //color: Colors.red[200],
@@ -53,41 +54,51 @@ Widget cardPendientes(BuildContext context, int indice) {
 
 Widget contentPendientes (BuildContext context, int indice){
   Cita cita = citas[indice];
-
   return ListTile(
     title: Row(children: [
       Container(
-        width: 80,
+        //color: Colors.yellow,
+        width: 95,
         alignment: Alignment.center,
-        child: Text("${cita.dia}"),
+        child: Text(
+          "${ DateFormat('dd-MM-yyyy hh:mm').format(cita.fecha)}",
+          textAlign: TextAlign.center,
+          style:TextStyle(
+            //color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 17
+          ),
+        ),
       ),
 
       Container(
-        width: 207,
+        //color: Colors.yellow,
+        width: 210,
         child: Column(children: [
-          Text(
-            cita.propietario
-          ),
-          
-          Text(
-            "Coche: ${cita.coche}",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.black,
-            ),
-          ),
 
-          Text(
-            "Servicio: ${cita.servicio}",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.black,
-            ),
+          Row(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "   Dueño: \n   Coche: \n   Servicio: ",
+                textAlign: TextAlign.left,
+                style:TextStyle(
+                  //color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic
+                ),
+              ),
+
+              Text(
+                "${cita.propietario}\n${cita.coche}\n${cita.servicio}",
+                textAlign: TextAlign.left,
+              ),
+            ],
           ),
         ]),
       ),
     ],)
   );
 }
-
 

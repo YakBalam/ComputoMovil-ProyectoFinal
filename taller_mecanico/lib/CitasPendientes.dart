@@ -7,6 +7,7 @@ import 'package:taller_mecanico/Servicio.dart';
 import 'Servicio.dart';
 import 'ClasifServicio.dart';
 import 'CitaPendiente.dart';
+import 'package:intl/intl.dart';
 
 class CitasPendientes extends StatelessWidget {
   @override
@@ -41,59 +42,12 @@ class CitasPendientes extends StatelessWidget {
 Widget cardCitas(BuildContext context, int indice) {
   return Card(
     //elevation: 100,
-    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     margin: EdgeInsets.only(right: 22, left: 22, top: 15),
     elevation: 10,
     //color: Colors.red[200],
     child: Column(children: [
       contentCitas(context, indice),
-
-      ListTile(
-        title: Row(
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.red,
-                primary: Colors.white,
-                padding: const EdgeInsets.only(
-                  left: 10.0,
-                  right: 10.0
-                ),
-              ),
-              onPressed: () {
-                /*Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(item: item),
-                  ),
-                );*/
-              },
-              child: Text("Rechazar X"),
-            ),
-
-            SizedBox(width: 50),
-
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.green,
-                primary: Colors.white,
-                
-              ),
-              onPressed: () {
-                /*Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(item: item),
-                  ),
-                );*/
-              },
-              child: Text("Aceptar"),
-            ),
-          ],          
-        ),
-      )
     ]),
   );
 }
@@ -103,33 +57,93 @@ Widget contentCitas (BuildContext context, int indice){
   return ListTile(
     title: Row(children: [
       Container(
-        width: 80,
+        //color: Colors.yellow,
+        width: 95,
         alignment: Alignment.center,
-        child: Text("${citaP.dia}"),
+        child: Text(
+          "${ DateFormat('dd-MM-yyyy hh:mm').format(citaP.fecha)}",
+          textAlign: TextAlign.center,
+          style:TextStyle(
+            //color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 17
+          ),
+        ),
       ),
 
       Container(
         width: 207,
         child: Column(children: [
-          Text(
-            citaP.propietario
-          ),
           
-          Text(
-            "Coche: ${citaP.coche}",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.black,
-            ),
+          Row(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "   Dueño: \n   Coche: \n   Servicio: ",
+                textAlign: TextAlign.left,
+                style:TextStyle(
+                  //color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic
+                ),
+              ),
+
+              Text(
+                "${citaP.propietario}\n${citaP.coche}\n${citaP.servicio}",
+                textAlign: TextAlign.left,
+              ),
+            ],
           ),
 
-          Text(
-            "Servicio: ${citaP.servicio}",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.black,
+
+          ListTile(
+            title: Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    primary: Colors.white,
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                      right: 10.0
+                    ),
+                  ),
+                  onPressed: () {
+                    /*Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(item: item),
+                      ),
+                    );*/
+                  },
+                  child: Text("Rechazar X"),
+                ),
+
+                SizedBox(width: 15),
+
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    primary: Colors.white,
+                    
+                  ),
+                  onPressed: () {
+                    /*Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(item: item),
+                      ),
+                    );*/
+                  },
+                  child: Text("Aceptar"),
+                ),
+              ],          
             ),
-          ),
+          )
+
         ]),
       ),
     ],)

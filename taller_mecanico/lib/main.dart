@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: HomePrueba(),
-      //home: Home(),
+      home: Home(),
       //home: Pendientes(),
-      home: CitasPendientes()
+      //home: CitasPendientes()
       //
     );
   }

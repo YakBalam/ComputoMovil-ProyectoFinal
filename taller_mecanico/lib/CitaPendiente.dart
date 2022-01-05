@@ -1,11 +1,12 @@
 class CitaPendiente {
   String propietario, coche, servicio;
-  int dia;
+  DateTime fecha;
+
   CitaPendiente({
     this.propietario = "Name del propietario",
     this.coche = "name del coche",
     this.servicio = "Servicio",
-    this.dia = 00,
+    required this.fecha
   });
 }
 
@@ -14,24 +15,24 @@ List<CitaPendiente> citasP = [
     propietario: "Pepe Botella",
     coche: "Mustang",
     servicio: "Afinacion.",
-    dia : 10
+    fecha: DateTime(2021,12,30,6,30)
   ),
   CitaPendiente(
     propietario: "Juana la Loca",
     coche: "Mamavan",
     servicio: "Chequeo General",
-    dia : 10
+    fecha: DateTime(2021,12,25,5,30)
   ),
   CitaPendiente(
     propietario: "Benito Bodoque",
     coche: "Corsa",
     servicio: "Cambio de aceite",
-    dia : 12
+    fecha: DateTime(2021,12,23,12,30)
   ),
   CitaPendiente(
     propietario: "Juanin",
     coche: "Combi",
     servicio: "Afinacion",
-    dia : 10
+    fecha: DateTime(2021,12,13,16,30)
   ),
 ];

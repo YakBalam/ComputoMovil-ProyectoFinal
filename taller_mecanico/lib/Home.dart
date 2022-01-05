@@ -1,10 +1,16 @@
+//import 'dart:js';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:taller_mecanico/Home.dart';
 import 'package:taller_mecanico/Servicio.dart';
 import 'Servicio.dart';
 import 'ClasifServicio.dart';
 import 'Cita.dart';
+import 'CitaPendiente.dart';
+import 'CitasPendientes.dart';
+import 'Pendientes.dart';
+import 'package:intl/intl.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -15,148 +21,216 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.cyan[400],), 
       body: 
-        ListView.builder(
-          padding: const EdgeInsets.only(
-            left: 10.0,
-            right: 10.0
+        Container(
+          //color: Colors.brown[400],
+          //margin: EdgeInsets.all(22),
+          child: ListView.builder(
+            itemCount: citasP.length,
+            itemBuilder: (context, index){
+              print(index);
+              return cardAgenda(context, index);
+            },
+            padding: const EdgeInsets.only(
+              left: 10.0,
+              right: 10.0
+            ),
           ),
-          itemCount: citas.length,
-          itemBuilder: (context, index){
-            print(index);
-            return Column(children: [
-              cardPendientes(context, index),
-              cardCitas(context, index)
-            ],);
-          },
         ),
       backgroundColor: Colors.white70,
+      drawer: miDrawer(context),
     );
   }
 }
 
+Widget cardAgenda(BuildContext context, int indice) {
+  return Card(
+    //elevation: 100,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    margin: EdgeInsets.only(right: 22, left: 22, top: 15),
+    elevation: 10,
+    //color: Colors.red[200],
+    child: Column(children: [
+      contentAgenda(context, indice),
 
+      
+    ]),
+  );
+}
 
-Widget cardPendientes(BuildContext context, int indice) {
-    Cita cita = citas[indice];
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: EdgeInsets.all(22),
-      elevation: 10,
-      child: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              'Pendietes para hoy', 
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),
-            ),
-            width: 500,
-            decoration: BoxDecoration(
-              color: Colors.redAccent[400],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              )
-            ),
+Widget contentAgenda (BuildContext context, int indice){
+  CitaPendiente citaP = citasP[indice];
+  return ListTile(
+    title: Row(children: [
+      Container(
+        //color: Colors.yellow,
+        width: 95,
+        alignment: Alignment.center,
+        child: Text(
+          "${ DateFormat('dd-MM-yyyy hh:mm').format(citaP.fecha)}",
+          textAlign: TextAlign.center,
+          style:TextStyle(
+            //color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 17
           ),
+        ),
+      ),
+
+      Container(
+        //color: Colors.yellow,
+        width: 210,
+        child: Column(children: [
+
+          Row(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "   Dueño: \n   Coche: \n   Servicio: ",
+                textAlign: TextAlign.left,
+                style:TextStyle(
+                  //color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic
+                ),
+              ),
+
+              Text(
+                "${citaP.propietario}\n${citaP.coche}\n${citaP.servicio}",
+                textAlign: TextAlign.left,
+              ),
+            ],
+          ),
+          
 
           ListTile(
-            title: Row(children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, 
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10)
-                  ),
-                ),
-                height: 59,
-                width: 100,
-                alignment: Alignment.center,
-                child: Text("${cita.dia}"),
-              ),
-
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, 
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10)
-                  ),
-                ),
-                width: 215,
-                child: Column(children: [
-                  Text(
-                    cita.propietario
-                  ),
-                  
-                  Text(
-                    "Coche: ${cita.coche}",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
+            title: Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    primary: Colors.white,
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                      right: 10.0
                     ),
                   ),
+                  onPressed: () {
+                    /*Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(item: item),
+                      ),
+                    );*/
+                  },
+                  child: Text("Rechazar X"),
+                ),
 
-                  Text(
-                    "Servicio: ${cita.servicio}",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                    ),
+                SizedBox(width: 15),
+
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    primary: Colors.white,
+                    
                   ),
-                ]),
-              ),
-            ],)
-          ),
-        ]
-      )
-    );
+                  onPressed: () {
+                    /*Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(item: item),
+                      ),
+                    );*/
+                  },
+                  child: Text("Aceptar"),
+                ),
+              ],          
+            ),
+          )
+        ]),
+      ),
+    ],)
+  );
 }
 
 
-Widget cardCitas(BuildContext context, int indice) {
-  return Card(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    margin: EdgeInsets.all(15),
-    elevation: 10,
-    child: Column(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.all(10),
+Widget miDrawer(BuildContext context) {
+  return Drawer(
+    //elevation: 100,
+    
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        DrawerHeader(
+          //margin: EdgeInsets.only(right: 22, left: 22, top: 15),
+          decoration: BoxDecoration(
+            color: Colors.cyan[800],
+          ),
           child: Text(
-            'Citas pendientes', 
+            '\nTus Pendientes\ndel Dia',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold
+              fontSize: 24,
             ),
-          ),
-          width: 500,
-          decoration: BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            )
+            textAlign: TextAlign.center
           ),
         ),
 
-        Container(
-          color: Colors.blue,
-          child: Text("Prueba")
+        SizedBox(height: 20),
+        
+        ListTile(
+          leading: Icon(Icons.calendar_today_outlined),
+          title: TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.black,
+              alignment: Alignment.centerLeft
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CitasPendientes(),
+                ),
+              );
+            },
+          
+            child: Text(
+              'Citas nuevas',
+              style: TextStyle(
+                fontSize: 16
+              ),
+            ),
+          )
         ),
-      ]
-    )
+
+
+        ListTile(
+          leading: Icon(Icons.directions_car_rounded),
+          title: TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.black,
+              alignment: Alignment.centerLeft
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Pendientes(),
+                ),
+              );
+            },
+          
+            child: Text(
+              'Trabajo',
+              style: TextStyle(
+                fontSize: 16
+              ),
+            ),
+          )
+        ),
+      ],
+    ),
   );
 }
