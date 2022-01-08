@@ -16,6 +16,8 @@ class _RegistrarseState extends State<Registrarse> {
   // Textos obtenidos
   String email = '';
   String password = '';
+  String error = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +44,18 @@ class _RegistrarseState extends State<Registrarse> {
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
+                  validator: (val) => val!.isEmpty
+                      ? 'Escribe una dirección de correo electrónico'
+                      : null,
                   onChanged: (val) {
                     setState(() => email = val);
                   },
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
+                  validator: (val) => val!.length < 6
+                      ? 'Introduce una contraseña de al menos 6 caracteres'
+                      : null,
                   obscureText: true,
                   onChanged: (val) {
                     setState(() => password = val);
@@ -58,8 +66,12 @@ class _RegistrarseState extends State<Registrarse> {
                   onPressed: () async {
                     if (_formKey.currentState != null) {
                       if (_formKey.currentState!.validate()) {
-                        print(email);
-                        print(password);
+                        dynamic result = await _auth.registerWithEmailAndPass(
+                            email, password);
+                        if (result == null) {
+                          setState(() =>
+                              error = 'Ingresa un correo electrónico válido');
+                        }
                       }
                     }
                   },
@@ -69,6 +81,16 @@ class _RegistrarseState extends State<Registrarse> {
                     onPrimary: Colors.white,
                   ),
                 ),
+                SizedBox(
+                  height: 12.0,
+                ),
+                Text(
+                  error,
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                  ),
+                )
               ],
             ),
           )),
