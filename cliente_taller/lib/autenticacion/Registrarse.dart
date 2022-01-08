@@ -1,21 +1,21 @@
 import 'package:cliente_taller/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class Registrarse extends StatefulWidget {
   final Function toggleView;
-  SignIn({required this.toggleView});
+  Registrarse({required this.toggleView});
 
   @override
-  _SignInState createState() => _SignInState();
+  _RegistrarseState createState() => _RegistrarseState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegistrarseState extends State<Registrarse> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   // Textos obtenidos
   String email = '';
   String password = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,20 +23,21 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('Sign in'),
+        title: Text('Registrarse'),
         actions: <Widget>[
           ElevatedButton.icon(
             onPressed: () {
               widget.toggleView();
             },
             icon: Icon(Icons.person),
-            label: Text('Registrarse'),
+            label: Text('Sign in'),
           )
         ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
           child: Form(
+            key: _formKey,
             child: Column(
               children: <Widget>[
                 SizedBox(height: 20.0),
@@ -55,10 +56,14 @@ class _SignInState extends State<SignIn> {
                 SizedBox(height: 20.0),
                 ElevatedButton(
                   onPressed: () async {
-                    print(email);
-                    print(password);
+                    if (_formKey.currentState != null) {
+                      if (_formKey.currentState!.validate()) {
+                        print(email);
+                        print(password);
+                      }
+                    }
                   },
-                  child: Text('Sign in'),
+                  child: Text('Registrarse'),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.pink[400],
                     onPrimary: Colors.white,
