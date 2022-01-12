@@ -1,6 +1,6 @@
-import 'package:cliente_taller/services/auth.dart';
-import 'package:cliente_taller/shared/Loading.dart';
-import 'package:cliente_taller/shared/constants.dart';
+import 'package:cliente_taller/auth.dart';
+import 'package:cliente_taller/Loading.dart';
+import 'package:cliente_taller/constants.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -33,9 +33,7 @@ class _SignInState extends State<SignIn> {
               title: Text('Sign in'),
               actions: <Widget>[
                 ElevatedButton.icon(
-                  onPressed: () {
-                    widget.toggleView();
-                  },
+                  onPressed: () => widget.toggleView(),
                   icon: Icon(Icons.person),
                   label: Text('Registrarse'),
                 )

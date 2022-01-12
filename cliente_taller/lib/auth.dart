@@ -1,6 +1,5 @@
-import 'package:cliente_taller/autenticacion/Sign_in.dart';
-import 'package:cliente_taller/models/UserApp.dart';
-import 'package:cliente_taller/services/DatabaseService.dart';
+import 'package:cliente_taller/UserApp.dart';
+import 'package:cliente_taller/DatabaseService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -16,7 +15,7 @@ class AuthService {
   }
 
   // Stream: un usuario accedió, salió o no inició sesión
-  Stream<UserApp> get user {
+  Stream<UserApp?> get user {
     return _auth
         .authStateChanges()
         .map((User? user) => _userFromFirebaseUser(user));
@@ -28,7 +27,7 @@ class AuthService {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User? user = result.user;
-      return _userFromFirebaseUser(user);
+      return user;
     } catch (e) {
       print(e.toString());
       return null;

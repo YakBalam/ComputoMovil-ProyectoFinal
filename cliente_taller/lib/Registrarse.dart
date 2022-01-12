@@ -1,6 +1,6 @@
-import 'package:cliente_taller/services/auth.dart';
-import 'package:cliente_taller/shared/Loading.dart';
-import 'package:cliente_taller/shared/constants.dart';
+import 'package:cliente_taller/auth.dart';
+import 'package:cliente_taller/Loading.dart';
+import 'package:cliente_taller/constants.dart';
 import 'package:flutter/material.dart';
 
 class Registrarse extends StatefulWidget {

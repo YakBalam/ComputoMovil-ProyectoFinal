@@ -1,18 +1,18 @@
-import 'package:cliente_taller/services/auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:cliente_taller/services/DatabaseService.dart';
+import 'package:cliente_taller/Cliente.dart';
+import 'package:cliente_taller/auth.dart';
+import 'package:cliente_taller/DatabaseService.dart';
 import 'package:provider/provider.dart';
-import 'package:cliente_taller/home/ClienteLista.dart';
+import 'package:cliente_taller/ClienteLista.dart';
+import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot?>.value(
+    return StreamProvider<List<Cliente?>?>.value(
       initialData: null,
-      value: DatabaseService(uid: '').clientesNow,
+      value: DatabaseService().clientes,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(

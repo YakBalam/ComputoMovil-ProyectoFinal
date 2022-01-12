@@ -1,5 +1,5 @@
-import 'package:cliente_taller/autenticacion/Registrarse.dart';
-import 'package:cliente_taller/autenticacion/Sign_in.dart';
+import 'package:cliente_taller/Registrarse.dart';
+import 'package:cliente_taller/Sign_in.dart';
 import 'package:flutter/material.dart';
 
 class Autenticacion extends StatefulWidget {
