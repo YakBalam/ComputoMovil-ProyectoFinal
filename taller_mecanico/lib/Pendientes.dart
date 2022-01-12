@@ -22,7 +22,7 @@ class Pendientes extends StatelessWidget {
         
       body: 
         ListView.builder(
-          itemCount: citas.length,
+          itemCount: citasDia(),
           itemBuilder: (context, index){
             print(index);
             return cardPendientes(context, index);
@@ -37,6 +37,24 @@ class Pendientes extends StatelessWidget {
       backgroundColor: Colors.red[200], 
     );
   }
+}
+
+int citasDia(){
+  int cont=0;
+  String hoy, fechaCita;
+  hoy=DateFormat('dd-MM-yyyy').format(DateTime.now());
+  
+  for (int i = 0; i < citas.length; i++) {
+    fechaCita = DateFormat('dd-MM-yyyy').format(citas[i].fecha);
+    print("Hoy: ${hoy}     Cita: ${fechaCita}");
+    if (fechaCita == hoy){
+      cont = cont + 1;
+    }
+  }
+
+  print(cont);
+
+  return cont;
 }
 
 Widget cardPendientes(BuildContext context, int indice) {

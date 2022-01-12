@@ -21,7 +21,7 @@ List<Cita> citas = [
     propietario: "Pedro Picapiedra",
     coche: "Tsuru",
     servicio: "Afinacion",
-    fecha: DateTime(2021,12,30)
+    fecha: DateTime.now()
   ),
   Cita(
     propietario: "Beto Perez",

@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
           //color: Colors.brown[400],
           //margin: EdgeInsets.all(22),
           child: ListView.builder(
-            itemCount: citasP.length,
+            itemCount: citas.length,
             itemBuilder: (context, index){
               print(index);
               return cardAgenda(context, index);
@@ -58,7 +58,7 @@ Widget cardAgenda(BuildContext context, int indice) {
 }
 
 Widget contentAgenda (BuildContext context, int indice){
-  CitaPendiente citaP = citasP[indice];
+  Cita cita = citas[indice];
   return ListTile(
     title: Row(children: [
       Container(
@@ -66,7 +66,7 @@ Widget contentAgenda (BuildContext context, int indice){
         width: 95,
         alignment: Alignment.center,
         child: Text(
-          "${ DateFormat('dd-MM-yyyy hh:mm').format(citaP.fecha)}",
+          "${ DateFormat('dd-MM-yyyy hh:mm').format(cita.fecha)}",
           textAlign: TextAlign.center,
           style:TextStyle(
             //color: Colors.white,
@@ -96,7 +96,7 @@ Widget contentAgenda (BuildContext context, int indice){
               ),
 
               Text(
-                "${citaP.propietario}\n${citaP.coche}\n${citaP.servicio}",
+                "${cita.propietario}\n${cita.coche}\n${cita.servicio}",
                 textAlign: TextAlign.left,
               ),
             ],
@@ -106,29 +106,11 @@ Widget contentAgenda (BuildContext context, int indice){
           ListTile(
             title: Row(
               //crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    primary: Colors.white,
-                    padding: const EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0
-                    ),
-                  ),
-                  onPressed: () {
-                    /*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailPage(item: item),
-                      ),
-                    );*/
-                  },
-                  child: Text("Rechazar X"),
-                ),
+                
 
-                SizedBox(width: 15),
+                //SizedBox(width: 15),
 
                 TextButton(
                   style: TextButton.styleFrom(
@@ -144,7 +126,7 @@ Widget contentAgenda (BuildContext context, int indice){
                       ),
                     );*/
                   },
-                  child: Text("Aceptar"),
+                  child: Text("Finalizar"),
                 ),
               ],          
             ),
