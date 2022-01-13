@@ -16,7 +16,7 @@ class ClienteTile extends StatelessWidget {
             radius: 25.0,
             backgroundColor: Colors.brown,
           ),
-          title: Text(cliente!.name),
+          title: Text(cliente?.name ?? ''),
           subtitle: Text('Hello'),
         ),
       ),

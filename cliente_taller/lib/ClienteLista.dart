@@ -11,12 +11,15 @@ class ClienteLista extends StatefulWidget {
 class _ClienteListaState extends State<ClienteLista> {
   @override
   Widget build(BuildContext context) {
-    final clientes = Provider.of<List<Cliente>>(context);
+    final clientes = context.watch<List<Cliente>?>();
 
     return ListView.builder(
-      itemCount: clientes.length,
+      itemCount: clientes?.length,
       itemBuilder: (context, index) {
-        return ClienteTile(cliente: clientes[index]);
+        //print(clientes);
+        //print('CLIENTES TAMANO ****');
+        //print(clientes?.length);
+        return ClienteTile(cliente: clientes?[index]);
       },
     );
   }
