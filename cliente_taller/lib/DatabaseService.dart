@@ -7,7 +7,7 @@ class DatabaseService {
 
   // Coleccion de referencia
   final CollectionReference coleccionCliente =
-      FirebaseFirestore.instance.collection('clientes');
+      FirebaseFirestore.instance.collection('cliente');
 
   Future<void> updateUserData(String name) async {
     return await coleccionCliente.doc(uid).set({
@@ -26,7 +26,7 @@ class DatabaseService {
   }
 
   // Saber si ocurren cambios en los datos de un usuario
-  Stream<List<Cliente?>> get clientes {
+  Stream<List<Cliente?>> get cliente {
     return coleccionCliente.snapshots().map(_clienteFromSnapshot);
   }
 }
