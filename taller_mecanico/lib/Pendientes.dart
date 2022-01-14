@@ -1,11 +1,6 @@
-//import 'dart:js';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:taller_mecanico/Home.dart';
-import 'package:taller_mecanico/Servicio.dart';
-import 'Servicio.dart';
 import 'ClasifServicio.dart';
 import 'Cita.dart';
 
