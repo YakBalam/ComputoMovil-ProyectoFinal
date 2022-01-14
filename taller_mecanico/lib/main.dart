@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taller_mecanico/CitasPendientes.dart';
-
 import 'package:taller_mecanico/Home.dart';
-import 'package:taller_mecanico/HomePrueba.dart';
-import 'package:taller_mecanico/Pendientes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,11 +16,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: HomePrueba(),
+      
       home: Home(),
-      //home: Pendientes(),
-      //home: CitasPendientes()
-      //
+      
     );
   }
 }

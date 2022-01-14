@@ -15,24 +15,36 @@ List<CitaPendiente> citasP = [
     propietario: "Pepe Botella",
     coche: "Mustang",
     servicio: "Afinacion.",
-    fecha: DateTime(2021,12,30,6,30)
+    fecha: DateTime(2022,1,15,12,30)
+  ),
+  CitaPendiente(
+    propietario: "Lisset Noriega",
+    coche: "Mazda",
+    servicio: "Afinacion.",
+    fecha: DateTime(2022,1,14,16,30)
   ),
   CitaPendiente(
     propietario: "Juana la Loca",
-    coche: "Mamavan",
+    coche: "Sedan",
     servicio: "Chequeo General",
-    fecha: DateTime(2021,12,25,5,30)
+    fecha: DateTime(2022,1,15,15,0)
   ),
   CitaPendiente(
     propietario: "Benito Bodoque",
     coche: "Corsa",
     servicio: "Cambio de aceite",
-    fecha: DateTime(2021,12,23,12,30)
+    fecha: DateTime(2022,1,16,14,30)
   ),
   CitaPendiente(
-    propietario: "Juanin",
+    propietario: "Juanin Perez",
     coche: "Combi",
-    servicio: "Afinacion",
-    fecha: DateTime(2021,12,13,16,30)
+    servicio: "Lavado Inyectores",
+    fecha: DateTime(2022,1,15,18,0)
+  ),
+  CitaPendiente(
+    propietario: "Sarah Connor",
+    coche: "X-Trail",
+    servicio: "Cambio de Bujias",
+    fecha: DateTime(2022,1,15,18,0)
   ),
 ];

@@ -1,9 +1,4 @@
-//import 'dart:js';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:taller_mecanico/Home.dart';
-import 'package:taller_mecanico/Servicio.dart';
 import 'Servicio.dart';
 import 'ClasifServicio.dart';
 import 'Cita.dart';
@@ -17,7 +12,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Inicio"), 
+        title: Text("Taller Mecanico"), 
         centerTitle: true,
         backgroundColor: Colors.cyan[400],), 
       body: 
