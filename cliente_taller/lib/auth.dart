@@ -34,6 +34,8 @@ class AuthService {
     }
   }
 
+  List<String> coches = ['Ninguno', 'Bocho', 'Tsuru', 'CR-V'];
+
   //register with email and pass
   Future registerWithEmailAndPass(String email, String password) async {
     try {
@@ -41,7 +43,8 @@ class AuthService {
           email: email, password: password);
       User? user = result.user;
       // crear un nuevo documento para el nuevo usuario
-      await DatabaseService(uid: user!.uid).updateUserData('Cliente nuevo');
+      await DatabaseService(uid: user!.uid)
+          .updateUserData('Cliente nuevo', 'Ninguno', coches);
 
       return _userFromFirebaseUser(user);
     } catch (e) {

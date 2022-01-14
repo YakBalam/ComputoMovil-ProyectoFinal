@@ -11,6 +11,7 @@ class Registrarse extends StatefulWidget {
   _RegistrarseState createState() => _RegistrarseState();
 }
 
+//AGregar nombre
 class _RegistrarseState extends State<Registrarse> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
@@ -18,6 +19,7 @@ class _RegistrarseState extends State<Registrarse> {
 
   // Textos obtenidos
   String email = '';
+  String nombre = '';
   String password = '';
   String error = '';
 
@@ -26,9 +28,9 @@ class _RegistrarseState extends State<Registrarse> {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.brown[100],
+            backgroundColor: Colors.cyan[100],
             appBar: AppBar(
-              backgroundColor: Colors.brown[400],
+              backgroundColor: Colors.cyan[400],
               elevation: 0.0,
               title: Text('Registrarse'),
               actions: <Widget>[
@@ -42,7 +44,7 @@ class _RegistrarseState extends State<Registrarse> {
               ],
             ),
             body: Container(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+                padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 50.0),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -58,7 +60,7 @@ class _RegistrarseState extends State<Registrarse> {
                           setState(() => email = val);
                         },
                       ),
-                      SizedBox(height: 20.0),
+                      SizedBox(height: 10.0),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
                             hintText: 'Contraseña'),
@@ -70,7 +72,7 @@ class _RegistrarseState extends State<Registrarse> {
                           setState(() => password = val);
                         },
                       ),
-                      SizedBox(height: 20.0),
+                      SizedBox(height: 10.0),
                       ElevatedButton(
                         onPressed: () async {
                           if (_formKey.currentState != null) {
@@ -78,6 +80,7 @@ class _RegistrarseState extends State<Registrarse> {
                               setState(() => loading = true);
                               dynamic result = await _auth
                                   .registerWithEmailAndPass(email, password);
+
                               if (result == null) {
                                 setState(() {
                                   error =
@@ -90,7 +93,7 @@ class _RegistrarseState extends State<Registrarse> {
                         },
                         child: Text('Registrarse'),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.pink[400],
+                          primary: Colors.cyan[700],
                           onPrimary: Colors.white,
                         ),
                       ),
